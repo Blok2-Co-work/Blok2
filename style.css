@@ -1,0 +1,33 @@
+:root {
+    --primary: #000000;
+    --accent: #8B0D32;
+    --gray: #DFDFDF;
+    --dark-red: #550202;
+}
+
+body {
+    margin: 0;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding-left: 2rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(139, 13, 50, 0.68);
+    color: white;
+    text-align: center;
+    font-size: medium;
+    font-size: 1.2em;
+
+}
+footer div{
+    padding: 1rem;
+    padding-right: 4rem;
+}
+footer a:first-child{
+    padding-top: 2.5rem;
+}
+ 
