@@ -118,7 +118,7 @@ main p, main ul li {
 ************************** FOOTER *************************
  */
 
-footer {
+footer{
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -126,16 +126,14 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: rgba(139, 13, 50, 0.68);
-    color: white;
+    color: black;
     text-align: center;
     font-size: 1.2em;
-}
+    
 
-footer div {
-    padding-left: 1rem;
+}
+footer div{
+    padding: 1rem;
     padding-right: 4rem;
-}
-
-footer a:first-child {
-    padding-top: 2.5rem;
+    display: flex;
 }
