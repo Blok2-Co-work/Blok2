@@ -137,3 +137,33 @@ footer div{
     padding-right: 4rem;
     display: flex;
 }
+/*
+********************************HEADER***************************************
+*/
+header{
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0 2rem 0;
+  background: white;
+  color: black;
+  font-size: 30px;
+}
+header nav ul{
+    padding: 0;
+    display: flex;
+    justify-content: space-around;;
+}
+header nav ul li {
+    list-style: none;
+}
+header nav ul li a{
+    font-size: xx-large;
+    padding: 2rem;
+    list-style:none;
+    color: inherit;
+    
+}
+header nav a{
+    text-decoration: none; 
+    color: inherit;
+}
