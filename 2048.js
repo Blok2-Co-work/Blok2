@@ -226,22 +226,22 @@ function cantUpdateTileRow(row) {
     for(let r = 0; r < rows; r++){
         row = board[r];
         row = filterZero(row);
-        console.log("dit is de rownummer")
-        console.log(r)
-        console.log("dit is de row")
-        console.log(row)
+        //console.log("dit is de rownummer")
+        //console.log(r)
+        //console.log("dit is de row")
+        //console.log(row)
         for (let i = 0; i < row.length-1; i++){
             if (row[i] == row[i+1]) {
-                console.log("er kan een combinatie gemaakt worden")
-                console.log("")
+                //console.log("er kan een combinatie gemaakt worden")
+                //console.log("")
                 return false;
             }
         } 
-        console.log("er kan geen combinatie gemaakt worden")
-        console.log("")
+        //console.log("er kan geen combinatie gemaakt worden")
+        //console.log("")
         
     }
-    console.log("-------------------row")
+    //console.log("-------------------row")
     return true;
     
 }
@@ -251,21 +251,21 @@ function cantUpdateTileCol() {
         //row van getallen in een collom
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
         row = filterZero(row);
-        console.log("dit is de collomnummer")
-        console.log(c)
-        console.log("dit is de row van getallen in een collom")
-        console.log(row)
+        //console.log("dit is de collomnummer")
+        //console.log(c)
+        //console.log("dit is de row van getallen in een collom")
+        //console.log(row)
         for (let i = 0; i < row.length-1; i++) {
             if (row[i] == row[i+1]) {
-                console.log("er is een combinatie mogelijk")
-                console.log("")
+                //console.log("er is een combinatie mogelijk")
+                //console.log("")
                 return false;
             }
-            console.log("er kan geen combinatie gemaakt worden")
-            console.log("")
+            //console.log("er kan geen combinatie gemaakt worden")
+            //console.log("")
         }
     }
-    console.log("-------------------col")
+    //console.log("-------------------col")
     return true;
 }
 
@@ -282,32 +282,40 @@ function WonOrLost() {
     for(let c = 0; c < columns; c++){
         //row van getallen in een collom
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]];
-        row = filterZero(row);
         console.log("dit is de collomnummer")
         console.log(c)
         console.log("dit is de row van getallen in een collom")
         console.log(row)
 
-        document.getElementById('result').innerHTML = "you won";
+        //document.getElementById('result').innerHTML = "you lost";
         
-        // if(row.includes(8)){
-        //     document.getElementById('result').innerHTML = "you won";
-        //     console.log("you won")
-        // }
-        // else if (row.includes(4096)){
-        //     document.getElementById('result').innerHTML = "you won";
-        //     console.log("you won")
-        // }
-        // else if(row.includes(8192)){
-        //     document.getElementById('result').innerHTML = "you won";
-        //     console.log("you won")
-        // }
-        // else {
-        //     document.getElementById('result').innerHTML = "you lost";
-        //     console.log("you lost")
-        // }
+        if(row.includes(2048)){
+            document.getElementById('result').innerHTML = "you won";
+            console.log("you won")
+            console.log("here")
+            break;
+        }
+        else if (row.includes(4096)){
+            document.getElementById('result').innerHTML = "you won";
+            console.log("you won")
+            console.log("here1")
+            break;
+        }
+        else if(row.includes(8192)){
+            document.getElementById('result').innerHTML = "you won";
+            console.log("you won")
+            console.log("here2")
+
+            break;
+        }
+        else {
+            document.getElementById('result').innerHTML = "you lost";
+            console.log("you lost")
+            console.log("here3")
+            
+        }
     }
-    console.log("-------------------win")
+    console.log("-------------------winOrLost")
     return true;
 }
 
