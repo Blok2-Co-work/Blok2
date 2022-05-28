@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2048</title>
+        <link rel="stylesheet" href="2048.css">
+        <link rel="stylesheet" href="../all.css">
+
+        <script defer src="2048.js"></script>
+        <script defer src="../header.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <a class="logo" href="./">GitGames</a>
+                <button aria-expanded="false" class="hamburger" id="menu">
+                        <span aria-hidden="true" class="icon">
+                            <span></span><span></span><span></span>
+                        </span>
+                    <span>Menu</span>
+                </button>
+                <nav class="hidden">
+                    <ul>
+                        <li><a class="active" href="./">Home</a></li>
+                        <li><a href="leaderboards/">Leaderboards</a></li>
+                        <li><a href="contactPage/">Contact</a></li>
+    
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>2048</h1>
+            <div class="intro">
+                <p>regels: </p>
+                <p>
+                    Om de 2 seconden zal er een 2 bijkomen, je zal nog voort kunnen spelen tot je geen zetten meer kan maken
+                </p>
+            </div>
+
+            <h2 class="highScore">Highscore this session: <span id="highscore">0</span></h2>
+
+            <!-- Number for extra rows and collumn -->
+
+            <input id="rowSelector" type="number" name="rowSelector" value=4>
+            
+            <button id="buttonForAmount">Play with this amount of rows and columns</button>
+
+            <div class="theGame">
+                <h2 class="score">Score: <span id="score">0</span></h2>
+
+                <div id="result"></div>
+                
+                <div id="board"></div>
+            </div>
+
+            <button class="changeBoardSize">Change the board-size</button>
+            <p class="changeBoardSizeP">if you choose to change the board size your high score will disapear</p>
+            <button class="try_again">Play again !</button>
+        
+        </main>
+        <footer>
+            <div class="footerContainer">
+                <h3>GitGames</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <p>copyright Jasper Brands</p>
+        </footer>
+
+    </body>
+</html>
