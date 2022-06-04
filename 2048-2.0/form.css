@@ -1,0 +1,102 @@
+/*mobiel eerst*/
+
+
+fieldset > ul{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+label, legend{
+    display: block;
+    font-size: 1.375em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+input{
+    border: 2px solid var(--black);
+    background-color: var(--accent);
+    color: var(--bg);
+    border-radius:10px;
+    font-size: 1.375em;
+    padding: 0.75em;
+    width: 90%;
+    /*fall back if calc isnt working*/
+    width: calc(100% - 1.5em);
+    /*full width minus padding*/
+}
+
+input[type=number] {
+    width: 5.5em; /*5em = 16px * 5 = 80px*/
+}
+
+input[type=radio], input[type=checkbox]{
+    width: 1.5em;
+    cursor: pointer;
+}
+
+input[type=radio] + label, input[type=checkbox] + label{
+    display: inline;
+    font-size: 1em;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+label > abbr.optional{
+    color: var(--gray);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+label > abbr.required, legend > abbr.required{
+    color: var(--dark-red);
+    text-decoration: none;
+}
+
+.rateThisSkin button{
+    border: 0;
+    width: 100%;
+    background-color: var(--gray);
+    border: var(--red) solid 1px;
+    color: var(--white);
+    font-weight: 600;
+    padding: 4% 8%;
+    cursor: pointer;
+}
+
+.rateThisSkin button:hover{
+    background-color: var(--black);
+    transition: background-color 40ms ease-in-out;
+}
+
+fieldset ul li{
+    margin-bottom: 1em;
+}
+
+fieldset > div.inputDescription{
+    margin-bottom: 0;
+}
+
+div.inputDescription{
+    margin-top: 0.25em;
+    color: var(--red);
+    display: none;
+}
+/*
+input.invalid {
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+ */
+.stars_and_privacy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

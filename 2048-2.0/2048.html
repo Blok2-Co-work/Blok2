@@ -6,7 +6,7 @@
         <title>2048</title>
         <link rel="stylesheet" href="2048.css">
         <link rel="stylesheet" href="../all.css">
-
+        <link rel="stylesheet" href="form.css">
         <script defer src="2048.js"></script>
         <script defer src="../header.js"></script>
 
@@ -14,7 +14,7 @@
     <body>
         <header>
             <div class="content">
-                <a class="logo" href="./">GitGames</a>
+                <a class="logo" href="../">GitGames</a>
                 <button aria-expanded="false" class="hamburger" id="menu">
                         <span aria-hidden="true" class="icon">
                             <span></span><span></span><span></span>
@@ -23,43 +23,76 @@
                 </button>
                 <nav class="hidden">
                     <ul>
-                        <li><a class="active" href="./">Home</a></li>
-                        <li><a href="leaderboards/">Leaderboards</a></li>
-                        <li><a href="contactPage/">Contact</a></li>
-    
+                        <li><a class="active" href="../">Home</a></li>
+                        <li><a href="../leaderboards/">Leaderboards</a></li>
+                        <li><a href="../contactPage/">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <main>
             <h1>2048</h1>
+
             <div class="intro">
-                <p>regels: </p>
+                <h2>regels: </h2>
                 <p>
-                    Om de 2 seconden zal er een 2 bijkomen, je zal nog voort kunnen spelen tot je geen zetten meer kan maken
+                    De blokken zullen allemaal verschuiven naar de richt van je pijltjes.
+                </p>
+                <p>Om te winnen zal je minstens 2048 moeten halen, maar hoe hoger hoe beter!</p>
+                <p>    
+                    Je zal nog voort kunnen spelen tot je geen zetten meer kan maken.
+                </p>
+                <p>
+                    De score wordt opgeteld voor elke combinatie van een 2blokken.
+                </p>
+                <button class="generate2">speel zonder extra 2's</button>
+                <p class="extra2P">
+                    Om de 2 seconden zal er een 2 bijkomen.
                 </p>
             </div>
 
-            <h2 class="highScore">Highscore this session: <span id="highscore">0</span></h2>
+            <form class="form" action="#">
+                <!-- de username -->
+                <div>
+                    <label for="username">username
+                        <abbr title="Dit is een verplicht in te vullen veld" class="required">*</abbr>
+                    </label>
+                    <!-- tabindex=0 is het eerste veld als we tabben waarin we terecht komen, autofocus zorgt ervoor dat cursor meteen in dat veld zit -->
+                    <input class="invalid" type="text" name="username" id="username" autocomplete="given-name" tabindex="0" required autofocus>
+                    <div id="username-valid" class="inputDescription">error</div>
+                </div>
 
-            <!-- Number for extra rows and collumn -->
+                <div>
+                    <button class="startGame" type="submit">Start game</button>
+                    <div id="privacy-valid" class="inputDescription">error</div>
+                </div>
 
-            <input id="rowSelector" type="number" name="rowSelector" value=4>
-            
-            <button id="buttonForAmount">Play with this amount of rows and columns</button>
+            </form>
 
-            <div class="theGame">
-                <h2 class="score">Score: <span id="score">0</span></h2>
 
-                <div id="result"></div>
+            <section class="gameRunning">
+
+                <h2 class="highScore">Highscore this session: <span id="highscore">0</span></h2>
+
+                <!-- Number for extra rows and collumn -->
+
+                <input id="rowSelector" type="number" name="rowSelector" value=4>
                 
-                <div id="board"></div>
-            </div>
+                <button id="buttonForAmount">Play with this amount of rows and columns</button>
 
-            <button class="changeBoardSize">Change the board-size</button>
-            <p class="changeBoardSizeP">if you choose to change the board size your high score will disappear.</p>
-            <button class="try_again">Play again !</button>
-        
+                <div class="theGame">
+                    <h2 class="score">Score: <span id="score">0</span></h2>
+
+                    <div id="result"></div>
+                    
+                    <div id="board"></div>
+                </div>
+
+                <button class="changeBoardSize">Change the game functions</button>
+                <p class="changeBoardSizeP">if you choose to change the board size your high score will disappear.</p>
+                <button class="try_again">Play again !</button>
+                <button class="uploadScore">Post your score</button>
+            </section>
         </main>
         <footer>
             <div class="footerContainer">

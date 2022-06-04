@@ -1,33 +1,178 @@
+// declaraties voor spel
 let board = new Array();
 let score = 0;
 let highScore = 0;
 let rows;
 let columns;
+let generateWithTime = new Boolean(true);
 
-buttonStart = document.getElementById("buttonForAmount")
+//declaraties other elements
+const sectionGameRunning = document.querySelector('.gameRunning')
+const changeBoardSizeP = document.querySelector(".changeBoardSizeP")
+const changeBoardSizeClass = document.querySelector(".changeBoardSize")
+const theGameClass = document.querySelector(".theGame")
+const highScoreClass = document.querySelector(".highScore")
+const highScoreID = document.querySelector("#highscore")
+const scoreClass = document.querySelector(".score")
+const introClass = document.querySelector(".intro")
+const rowSelectorID = document.querySelector("#rowSelector")
+const resultID = document.querySelector("#result")
+const extra2P = document.querySelector(".extra2P")
+
+//declaraties van buttons
+const buttonTryAgain = document.querySelector('.try_again')
+const buttonUploadScore = document.querySelector('.uploadScore')
+const buttonVoorBoardSize = document.querySelector(".changeBoardSize")
+const buttonStart = document.getElementById("buttonForAmount")
+const buttonGenerate2 = document.querySelector(".generate2")
+
+//declaraties voor form
+const username = document.querySelector('input[name="username"]');
+const errusername = document.querySelector('#username-valid');
+const form = document.querySelector('form');
+
+//form voor username
+console.log(form);
+form.addEventListener("submit", e => {
+    
+    e.preventDefault();
+
+    console.log("form was send but page did not reload yet");
+    const isValid = validateForm();
+    if(isValid) {
+        console.log('form is valid');
+
+        form.style.display = 'none';
+        sectionGameRunning.style.visibility = 'visible';
+
+        resetErrors();   
+        
+    }else {
+        console.warn('Form is invalid');
+    }
+
+    resetFrom();
+
+})
+
+const validateForm = () => {
+    let isValid = true;
+
+    if (username.value === ''){
+        setError(errusername,'fill in username')
+        isValid = false;
+        console.log('username passed')
+    }
+
+    return isValid;
+};
+
+const resetErrors = () => {
+    errusername.style.display = 'none';
+}
+
+const resetFrom = () => {
+    username.value = '';
+}
+const setError = (element, message) => {
+    element.style.display = 'block';
+    element.innerText = message;
+}
+
+//----------------------------------------
+
+//send the score to api
+
+function uploadScore(){
+    console.log('upload de score')
+    //temporary commented cuz no api
+
+        // const asyncFunc1 = async () =>{
+        //     const data =  {
+        //         //id : null, niet nodig
+        //         username : username.value,
+        //         score : score.value,
+        //         boardSize : boardSize.value,
+        //     }
+
+        //     console.log(data);
+
+        //     const wait = await fetch('https://2048/Leaderboards', {
+        //         method: "POST",
+        //         headers: {        
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+
+        //     body: JSON.stringify(data)
+            
+        //     });
+
+        //     if (wait.ok){
+        //         const content = await wait.json();
+        //         console.log(content);
+
+        //         //this is a temporary skip cuz no api
+
+
+
+        //         //redirect here 
+        //         if (content.status === 'succes : '){
+        //             window.location.href = '../skinLeaderboards/'
+        //         }
+        //     }else{
+        //         console.log(wait.statusText);
+
+        //     }
+        // }
+        // asyncFunc1();
+}
+
+
+//----------------------------------------
+
+buttonGenerate2.addEventListener("click", function(){
+    if (!generateWithTime) {
+        generateWithTime = true;
+        buttonGenerate2.innerHTML = "speel zonder extra 2's";
+        extra2P.style.display = "block"
+
+    }
+    else{
+        generateWithTime = false;
+        buttonGenerate2.innerHTML = "speel met extra 2's";
+        extra2P.style.display = "none"
+    }
+
+})
+
+
 buttonStart.addEventListener("click", function(){
 
-    document.querySelector(".changeBoardSize").style.visibility = "hidden";
-    document.querySelector(".changeBoardSizeP").style.visibility = "hidden";
+    buttonVoorBoardSize.style.visibility = "hidden";
+    changeBoardSizeClass.style.visibility = "hidden";
+    changeBoardSizeP.style.visibility = "hidden";
 
-
-    document.querySelector(".highScore").style.color = "var(--primairy)"
+    highScoreClass.style.color = "var(--primairy)"
     score = 0;
     document.getElementById("score").innerHTML = score;
     //make a new board
     const newBoard = document.createElement("div");
     newBoard.setAttribute("id", "board");
     //append the new board to theGame div
-    document.querySelector(".theGame").appendChild(newBoard);
-    document.querySelector(".highScore").style.marginBottom = "10rem"
-    document.querySelector(".highScore").style.marginTop = "-9rem"
+    theGameClass.appendChild(newBoard);
+
+    //highScoreClass.style.marginBottom = "10rem"
+    //highScoreClass.style.marginTop = "-9rem"
 
     this.style.visibility = "hidden";
     buttonAmountFunc();
     document.getElementById("board").style.visibility = "visible"
-    document.getElementById("rowSelector").style.visibility = "hidden"
-    document.querySelector(".score").style.visibility = "visible"
-    document.querySelector(".intro").style.visibility = "hidden"
+    rowSelectorID.style.visibility = "hidden"
+
+    scoreClass.style.visibility = "visible"
+    //introClass.style.visibility = "hidden"
+    buttonGenerate2.style.display = "none"
     setGame();
     //disable arrow keys
     window.addEventListener("keydown", function(e) {
@@ -37,46 +182,51 @@ buttonStart.addEventListener("click", function(){
     }, false);
 })
 
-document.querySelector(".changeBoardSize").addEventListener("click", function() {
+buttonVoorBoardSize.addEventListener("click", function() {
     highScore = 0;
 
-    document.querySelector("#highscore").innerHTML = "";
+    highScoreID.innerHTML = "";
 
-    document.getElementById("rowSelector").style.visibility = "visible";
-    document.getElementById("rowSelector").style.position = "relative";
-    document.getElementById("rowSelector").style.marginLeft = "auto";
-    document.getElementById("rowSelector").style.marginRight = "auto";
-
+    rowSelectorID.style.visibility = "visible";
+    rowSelectorID.style.position = "relative";
+    rowSelectorID.style.marginLeft = "auto";
+    rowSelectorID.style.marginRight = "auto";
 
     this.style.visibility = "hidden";
-    document.querySelector(".changeBoardSizeP").style.visibility = "hidden";
+    changeBoardSizeP.style.visibility = "hidden";
+    buttonStart.style.marginTop = "1rem";
+    buttonGenerate2.style.display = "block";
 })
 
 //try again when game is over
-document.querySelector(".try_again").addEventListener("click", function(){
-    document.querySelector(".highScore").style.marginBottom = "1rem"
+buttonTryAgain.addEventListener("click", function(){
+
+    highScoreClass.style.marginBottom = "1rem"
     this.style.visibility = "hidden";
+    buttonUploadScore.style.visibility = "hidden";
 
-    document.querySelector(".changeBoardSize").style.visibility = "visible";
-    document.querySelector(".changeBoardSize").style.marginTop = "4rem";
+    changeBoardSizeClass.style.visibility = "visible";
+    changeBoardSizeClass.style.display = "flex"
+    changeBoardSizeClass.style.marginTop = "4rem";
 
-    document.querySelector(".changeBoardSizeP").style.visibility = "visible";
-    document.querySelector(".changeBoardSizeP").style.margintop = "2rem";
+    changeBoardSizeP.style.visibility = "visible";
+    changeBoardSizeP.style.margintop = "2rem";
 
     buttonStart.textContent = "Play Again !";
-    buttonStart.style.marginLeft = "auto";
-    buttonStart.style.marginTop = "2rem";
-    buttonStart.style.marginBottom = "0";
+    //buttonStart.style.marginLeft = "auto";
+    //buttonStart.style.marginTop = "2rem";
+    //buttonStart.style.marginBottom = "0";
 
-    buttonStart.style.marginRight = "auto";
+    //buttonStart.style.marginRight = "auto";
     buttonStart.style.display = "flex";
+    buttonStart.style.marginTop = "-4rem"
     buttonStart.style.visibility = "visible";
     
     buttonAmountFunc();
     // document.getElementById("rowSelector").style.visibility = "visible";
-    document.querySelector(".score").style.visibility = "hidden"
+    scoreClass.style.visibility = "hidden"
     // document.querySelector(".intro").style.visibility = "visible"
-    document.querySelector("#result").innerHTML = "";
+    resultID.innerHTML = "";
     document.getElementById("board").remove();
 })
 
@@ -199,8 +349,8 @@ function slide(row) {
             document.getElementById('score').innerHTML = score;
             if (score > highScore) {
                 highScore = score;
-                document.getElementById("highscore").innerHTML = score;
-                document.querySelector(".highScore").style.color = "var(--accent)";
+                highScoreID.innerHTML = score;
+                highScoreClass.style.color = "var(--accent)";
             }
         }
     } //[4, 0, 2]
@@ -317,7 +467,7 @@ function hasEmptyTile() {
             if (board[r][c] == 0) { //at least one zero in the board
                 return true;
             }
-            console.log(board[r][c])
+            //console.log(board[r][c])
         }
     }
     return false;
@@ -376,10 +526,13 @@ function cantUpdateTileCol() {
 
 //om de 2 seconden een nieuw getal toevoegen aan het bord, als je verloren bent er er geen nullen meer te zien zijn stopt de timer
 let interval = setInterval(function() {
-    setTwo();
-    if (!hasEmptyTile) {
-        clearInterval(interval)
-        console.log("statement reached")
+
+    if (generateWithTime) {
+        setTwo();
+        if (!hasEmptyTile) {
+            clearInterval(interval)
+            console.log("statement reached")
+        }
     }
 },2000);
 
@@ -398,19 +551,28 @@ function WonOrLost() {
 
         //document.getElementById('result').innerHTML = "you lost";
         
-        if(row.includes()){
+        if(row.includes(2048)){
             document.getElementById('result').innerHTML = "you won";
             console.log("you won")
             console.log("here")
-            document.querySelector('.try_again').style.visibility = 'visible';
 
+            buttonUploadScore.style.visibility = "visible";
+            buttonUploadScore.addEventListener("click",uploadScore)
+
+            buttonTryAgain.style.visibility = 'visible';
+            buttonTryAgain.style.marginTop = "-10rem"
             break;
         }
         else if (row.includes(4096)){
             document.getElementById('result').innerHTML = "you won";
             console.log("you won")
             console.log("here1")
-            document.querySelector('.try_again').style.visibility = 'visible';
+
+            buttonUploadScore.style.visibility = "visible";
+            buttonUploadScore.addEventListener("click",uploadScore)
+            
+            buttonTryAgain.style.visibility = 'visible';
+            buttonTryAgain.style.marginTop = "-10rem"
 
             break;
         }
@@ -418,16 +580,24 @@ function WonOrLost() {
             document.getElementById('result').innerHTML = "you won";
             console.log("you won")
             console.log("here2")
-            document.querySelector('.try_again').style.visibility = 'visible';
 
-
+            buttonUploadScore.style.visibility = "visible";
+            buttonUploadScore.addEventListener("click",uploadScore)
+            
+            buttonTryAgain.style.visibility = 'visible';
+            buttonTryAgain.style.marginTop = "-10rem"
             break;
         }
         else {
             document.getElementById('result').innerHTML = "you lost";
             console.log("you lost")
             console.log("here3")
-            document.querySelector('.try_again').style.visibility = 'visible';
+
+            buttonUploadScore.style.visibility = "visible";
+            buttonUploadScore.addEventListener("click",uploadScore)
+            
+            buttonTryAgain.style.visibility = 'visible';
+            buttonTryAgain.style.marginTop = "-10rem"
 
         }
     }
