@@ -7,6 +7,10 @@ router.route('/scores')
     .get(tourController.getScores)
     .post(tourController.setScore);
 
-router.route()
+router.route('/leaderboard')
+    .get(tourController.getScoresSorted);
+
+router.route('/games')
+    .get(tourController.getGameByDifficulty);
 
 module.exports = router;

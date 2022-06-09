@@ -57,6 +57,28 @@ exports.getScoresSorted = (req, res) => {
             console.error("ERROR: " + err);
         } res.status(200).json(rows);
     });
+
+    connection.end();
+};
+
+
+exports.getGameByDifficulty = (req, res) => {
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'gitgame_user',
+        password: 'ZevenPoepScheetjes5698',
+        database: 'gitgameDB'
+    });
+
+    connection.connect();
+
+    connection.query(`SELECT game, difficulty FROM scores ORDER BY scores.difficulty ASC`, (err, rows) => {
+        if (err) {
+            console.error("ERROR: " + err);
+        } res.status(200).json(rows);
+    });
+
+    connection.end();
 };
 
 
