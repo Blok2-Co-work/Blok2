@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 exports.getScores = (req, res) => {
     const connection = mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'gitgame_user',
         password: 'ZevenPoepScheetjes5698',
         database: 'gitgameDB'
@@ -10,7 +10,27 @@ exports.getScores = (req, res) => {
 
     connection.connect();
 
-    connection.query(`SELECT scores.user, scores.score, scores.date FROM scores WHERE scores.game = "GitGame"`, (err, rows) => {
+    connection.query(`SELECT user, score FROM scores WHERE game = 'GitGame';`, (err, rows) => {
+        if (err) {
+            console.error("ERROR: " + err);
+        }
+        res.status(200).json(rows);
+    });
+
+    connection.end();
+};
+
+exports.getScoresAll = (req, res) => {
+    const connection = mysql.createConnection({
+        host: '127.0.0.1',
+        user: 'gitgame_user',
+        password: 'ZevenPoepScheetjes5698',
+        database: 'gitgameDB'
+    });
+
+    connection.connect();
+
+    connection.query(`SELECT * FROM scores`, (err, rows) => {
         if (err) {
             console.error("ERROR: " + err);
         }
@@ -22,7 +42,7 @@ exports.getScores = (req, res) => {
 
 exports.setScore = (req, res) => {
     const connection = mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'gitgame_user',
         password: 'ZevenPoepScheetjes5698',
         database: 'gitgameDB'
@@ -44,7 +64,7 @@ exports.setScore = (req, res) => {
 
 exports.getScoresSorted = (req, res) => {
     const connection = mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'gitgame_user',
         password: 'ZevenPoepScheetjes5698',
         database: 'gitgameDB'
@@ -64,7 +84,7 @@ exports.getScoresSorted = (req, res) => {
 
 exports.getGameByDifficulty = (req, res) => {
     const connection = mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'gitgame_user',
         password: 'ZevenPoepScheetjes5698',
         database: 'gitgameDB'
