@@ -1,0 +1,245 @@
+:root {
+    --primary: #000000;
+    --accent: #8B0D32;
+    --gray: #DFDFDF;
+    --dark-red: #550202;
+    --bg: #ffffff
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+
+/*
+*********************** MAIN ****************************
+ */
+
+h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+}
+
+.luckyDiv {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.luckyBlock {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.profilePic {
+    width: 100%;
+}
+
+.profile, .profile2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.name {
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+    background-color: var(--gray);
+    border: 3px solid var(--accent);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.name2 {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.profile div div, .profile2 div div {
+    width: 50%;
+    background-color: var(--gray);
+    border: 3px solid var(--accent);
+    margin: 0;
+}
+
+.profile div div:nth-child(2), .profile2 div div:nth-child(1) {
+    padding: 0.5rem;
+}
+
+.profile div div p, .profile2 div div p {
+    margin: 0;
+}
+
+main p, main ul li {
+    font-size: 0.9rem;
+}
+
+.profile div, .profile2 div {
+    display: flex;
+    flex-direction: row;
+}
+
+.bigInfo {
+    display: none;
+}
+
+.profilePersonalia {
+    background-color: var(--gray);
+    border: 3px solid var(--accent);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.profiles {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.leaderboard {
+    background-color: var(--gray);
+    border-radius: 20px;
+    border: 5px solid var(--dark-red);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leaderboard div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.leaderboard span {
+    width: 50%;
+    text-align: center;
+    margin: 0 30px;
+}
+
+.leaderbutton {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: var(--gray);
+    border: 3px solid var(--accent);
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    min-width: 155px;
+}
+
+@supports (-webkit-text-stroke: 1px #000000) {
+    #span1, #span2 {
+        font-size: 1.5rem;
+        color: #d4af37;
+        -webkit-text-stroke: 1px #000000;
+    }
+}
+
+@media (max-width: 400px) {
+    .leaderbutton {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media (min-width: 900px) {
+    .leaderboard {
+        margin: 0 100px 50px 100px;
+    }
+
+    .leaderbutton {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    .profile, .profile2 {
+        width: 60%;
+    }
+
+    .profile2 {
+        right: 0;
+        margin-left: auto;
+    }
+}
+
+.leaderbutton:hover {
+    color: var(--accent);
+}
+
+.leader_p {
+    text-align: center;
+}
+
+/*
+************************** FOOTER *************************
+ */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding-left: 2rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(139, 13, 50, 0.68);
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+footer div {
+    padding-left: 1rem;
+    padding-right: 4rem;
+}
+
+footer a:first-child {
+    padding-top: 2.5rem;
+}
+
+/*
+*************************** BREAKPOINTS *************************
+*/
+
+@media (min-width: 750px) {
+    .name {
+        font-size: 2rem;
+    }
+
+    .bigInfo {
+        display: inline-block;
+    }
+
+    .smallInfo {
+        display: none;
+    }
+
+
+}
