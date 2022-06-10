@@ -51,7 +51,7 @@ exports.setScore = (req, res) => {
     connection.connect();
 
     connection.query(`
-    INSERT INTO scores (game, user, score, difficulty, date, boardSize) VALUES ('GitGame', '${req.body.username}', '${req.body.score}', 2, NOW(), ${req.body.boardSize});
+    INSERT INTO scores (game, user, score, difficulty, date) VALUES ('GitGame', '${req.body.username}', '${req.body.score}', 2, NOW());
     `, (err, rows) => {
         if (err){
             res.status(500).json({status: err});
