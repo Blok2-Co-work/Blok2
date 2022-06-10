@@ -1,10 +1,10 @@
-:root {
+/* :root {
     --primary: #000000;
     --accent: #8B0D32;
     --gray: #DFDFDF;
     --dark-red: #550202;
     --bg: #ffffff
-}
+} */
 
 body {
     font-family: "Work Sans", sans-serif;
@@ -24,7 +24,7 @@ body {
 
 h1 {
     text-align: center;
-    color: var(--primary);
+    color: #000000;
     margin-bottom: 0.5rem;
     font-size: 3rem;
 }
@@ -46,7 +46,7 @@ h1 {
 main h2 {
     text-align: center;
     font-size: 2rem;
-    color: var(--accent);
+    color: #000000;
 }
 
 .profilePic {
@@ -54,6 +54,7 @@ main h2 {
 }
 
 .profile, .profile2 {
+    color: #000000;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -63,7 +64,7 @@ main h2 {
     margin-bottom: 0;
     padding-bottom: 0.5rem;
     background-color: var(--gray);
-    border: 3px solid var(--accent);
+    border: 3px solid #8B0D32;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding-left: 1rem;
@@ -79,7 +80,7 @@ main h2 {
 .profile div div, .profile2 div div {
     width: 50%;
     background-color: var(--gray);
-    border: 3px solid var(--accent);
+    border: 3px solid #8B0D32;
     margin: 0;
 }
 
@@ -106,7 +107,7 @@ main p, main ul li {
 
 .profilePersonalia {
     background-color: var(--gray);
-    border: 3px solid var(--accent);
+    border: 3px solid #8B0D32;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -119,9 +120,10 @@ main p, main ul li {
 }
 
 .leaderboard {
+    color: #000000;
     background-color: var(--gray);
     border-radius: 20px;
-    border: 5px solid var(--dark-red);
+    border: 5px solid #550202;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -140,14 +142,14 @@ main p, main ul li {
     margin: 0 30px;
 }
 
-.leaderbutton {
+#leaderbutton {
     display: block;
     text-align: center;
     font-size: 1.5rem;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--gray);
-    border: 3px solid var(--accent);
+    border: 3px solid #8B0D32;
     border-radius: 20px;
     text-decoration: none;
     color: black;
@@ -164,7 +166,7 @@ main p, main ul li {
 }
 
 @media (max-width: 400px) {
-    .leaderbutton {
+    #leaderbutton {
         margin-left: 10%;
         margin-right: 10%;
     }
@@ -175,7 +177,7 @@ main p, main ul li {
         margin: 0 100px 50px 100px;
     }
 
-    .leaderbutton {
+    #leaderbutton {
         margin-left: 30%;
         margin-right: 30%;
     }
@@ -191,39 +193,14 @@ main p, main ul li {
 }
 
 .leaderbutton:hover {
-    color: var(--accent);
+    color: #8B0D32;
 }
 
 .leader_p {
     text-align: center;
 }
 
-/*
-************************** FOOTER *************************
- */
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    padding-left: 2rem;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(139, 13, 50, 0.68);
-    color: white;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-footer div {
-    padding-left: 1rem;
-    padding-right: 4rem;
-}
-
-footer a:first-child {
-    padding-top: 2.5rem;
-}
-
+ 
 /*
 *************************** BREAKPOINTS *************************
 */
@@ -240,6 +217,4 @@ footer a:first-child {
     .smallInfo {
         display: none;
     }
-
-
 }

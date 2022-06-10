@@ -1,28 +1,116 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
- <link rel="stylesheet" href="style.css">
-<title>GitGames</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>homepage</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link rel='stylesheet' type='text/css' media='screen' href='./homepage.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./all.css'>
+
+    <script defer type="module" src='./header.js'></script>
+    <script defer type="module"src='./main.js'></script>
+
 </head>
 <body>
     <header>
-        
-        
+        <div class="content">
+            <a class="logo" href="./">GitGames</a>
+            <button aria-expanded="false" class="hamburger" id="menu">
+                    <span aria-hidden="true" class="icon">
+                        <span></span><span></span><span></span>
+                    </span>
+                <span>Menu</span>
+            </button>
+            <nav class="hidden">
+                <ul>
+                    <li><a class="active" href="./">Home</a></li>
+                    <li><a href="./contact_and_leaderboards/leaderboard/">Leaderboards</a></li>
+                    <li><a href="./contact_and_leaderboards/contact/">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
+        <section class="preview">
+            <a href="./2048-2.0/2048.html">
+            <img src="img/2048_Screenshot.png" alt="2048 screenshot">
+            </a>
+            <div class="allInfo">
+                <div class="gameInfo">
+                    <h1>2048</h1>
+                    <p>extra info over game</p>
+                </div>
+                <button class="play2048">play it yourself</button>
+            </div>
+            
+        </section>
 
+        <section class="leaderboards">
+            <h2>View skins and collections</h2>
+            <div class="games">
+                <div class="game1">
+                    <img src="./img/leaderboard.png" alt="2048">
+                    <div class="buttonAndTitle">
+                        <h3>2048</h3>
+                        <br>
+                        <button class="leaderboardButton">view leaderboard</button>
+                    </div>
+                    </div>
+                <div class="game2">
+                    <img src="./img/leaderboard.png" alt="other">
+                    <div class="buttonAndTitle">
+                        <h3>Other</h3>
+                        <br>
+                        <button class="leaderboardButton">view leaderboard</button>
+                    </div>
+                </div>
+            </div>      
+        </section>
+
+        <section class="ourGames">
+            <h3>Our Games</h3>
+            <div class="allGames">
+                <div class="aGame">
+                    <a href="./2048-2.0/2048.html">
+                        <img src="./img/2048_Screenshot.png" alt="2048-2.0">
+                    </a>
+                    <div class="buttonAndText">
+                        <h4>2048</h4>
+                        <button class="play2048yes">play 2048</button>
+                    </div>
+                </div>
+                <div class="aGame">
+                    <a href="#">
+                        <img src="https://via.placeholder.com/550x400" alt="2048">
+                    </a>
+                    <div class="buttonAndText">
+                        <h4>Other</h4>
+                        <button class="other">play other</button>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+        <section class="aboutUs">
+            <h3>About us</h3>
+            <p>We are a group of students from odisee Ghent, we are all in our first year of ict.</p>
+            <button class="contactButton">Contact us !</button>
+        </section>
     </main>
     <footer>
-        <h2>GITGAMES</h2>
-        <div>
-        
-        <p>We are a group of students from odisee gent, we are all in our first year of ict.</p> 
+        <div class="footerContainer">
+            <h4>GitGames</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
         </div>
-        <div>
-            <a href="https://www.facebook.com/"> <img src="assets/Facebook_icon.png" alt="logo" width=40"></a>
-            <a href="https://www.instagram.com/"> <img src="assets/insta%20icon.png" alt="logo" width=40"></a>
-            <a href="https://www.twitter.com/"> <img src="assets/twitter%20icon.png" alt="logo" width=40"></a>
-        </div>
+        <p>copyright Jasper Brands & Avkaran Sarminder</p>
     </footer>
 </body>
 </html>

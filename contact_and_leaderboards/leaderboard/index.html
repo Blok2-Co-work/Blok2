@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="../scripts/leaderboard_page.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../../all.css">
+
+    <script defer type="module" src="../scripts/leaderboard_page.js"></script>
+    <script defer type="module" src="../../header.js"></script>
+
+
     <title>GitGame - Leaderboard</title>
 </head>
 <body>
-<header>
+    <header>
+        <div class="content">
+            <a class="logo" href="../../">GitGames</a>
+            <button aria-expanded="false" class="hamburger" id="menu">
+                    <span aria-hidden="true" class="icon">
+                        <span></span><span></span><span></span>
+                    </span>
+                <span>Menu</span>
+            </button>
+            <nav class="hidden">
+                <ul>
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="./contact_and_leaderboards/leaderboard/">Leaderboards</a></li>
+                    <li><a class="active" href="./contact_and_leaderboards/contact/">Contact</a></li>
 
-</header>
+                </ul>
+            </nav>
+        </div>
+    </header>
 <main>
     <div class="container">
         <h1>Leaderboard</h1>
@@ -97,13 +117,20 @@
 
                 </span>
             </div>
-
         </div>
-        <a href="../home" class="leaderbutton">Terug naar<br>main hub</a>
+        <a id="leaderbutton" href="../../">Ga terug naar de hub</a>
     </div>
 </main>
 <footer>
-
+    <div class="footerContainer">
+        <h4>GitGames</h4>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <p>copyright Jasper Brands & Avkaran Sarminder</p>
 </footer>
 </body>
 </html>
