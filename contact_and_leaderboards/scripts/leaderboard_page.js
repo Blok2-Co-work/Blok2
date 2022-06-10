@@ -1,4 +1,6 @@
-(async () => {
+'use strict';
+
+( async () => {
     const url = `https://gitgame.avkaransarminder.ikdoeict.be/leaderboard`
 
     try {
@@ -7,126 +9,126 @@
                 .then(response => response.json())
                 .then(data => document.querySelector('#span1').innerHTML +=
                     `
-                    ${(data)[0].usernamegame}
+                    ${(data)[0].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span2').innerHTML +=
                     `
-                    ${(data)[0].score} boardsize: ${(data)[0].boardSize}
+                    ${(data)[0].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span3').innerHTML +=
                     `
-                    ${(data)[1].usernamegame}
+                    ${(data)[1].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span4').innerHTML +=
                     `
-                    ${(data)[1].score} boardsize: ${(data)[1].boardSize}
+                    ${(data)[1].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span5').innerHTML +=
                     `
-                    ${(data)[2].usernamegame}
+                    ${(data)[2].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span6').innerHTML +=
                     `
-                    ${(data)[2].score} boardsize: ${(data)[2].boardSize}
+                    ${(data)[2].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span7').innerHTML +=
                     `
-                    ${(data)[3].usernamegame}
+                    ${(data)[3].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span8').innerHTML +=
                     `
-                    ${(data)[3].score} boardsize: ${(data)[3].boardSize}
+                    ${(data)[3].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span9').innerHTML +=
                     `
-                    ${(data)[4].usernamegame}
+                    ${(data)[4].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span10').innerHTML +=
                     `
-                    ${(data)[4].score} boardsize: ${(data)[4].boardSize}
+                    ${(data)[4].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span11').innerHTML +=
                     `
-                    ${(data)[5].usernamegame}
+                    ${(data)[5].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span12').innerHTML +=
                     `
-                    ${(data)[5].score} boardsize: ${(data)[5].boardSize}
+                    ${(data)[5].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span13').innerHTML +=
                     `
-                    ${(data)[6].usernamegame}
+                    ${(data)[6].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span14').innerHTML +=
                     `
-                    ${(data)[6].score} boardsize: ${(data)[6].boardSize}
+                    ${(data)[6].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span15').innerHTML +=
                     `
-                    ${(data)[7].usernamegame}
+                    ${(data)[7].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span16').innerHTML +=
                     `
-                    ${(data)[7].score} boardsize: ${(data)[7].boardSize}
+                    ${(data)[7].score}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span17').innerHTML +=
                     `
-                    ${(data)[8].usernamegame}
+                    ${(data)[8].user}
                     `
                 ),
             fetch(url)
                 .then(response => response.json())
                 .then(data => document.querySelector('#span18').innerHTML +=
                     `
-                    ${(data)[8].score} boardsize: ${(data)[8].boardSize}
+                    ${(data)[8].score}
                     `
                 ),
             fetch(url)
@@ -140,13 +142,16 @@
                 .then(response => response.json())
                 .then(data => document.querySelector('#span20').innerHTML +=
                     `
-                    ${(data)[9].score} boardsize: ${(data)[9].boardSize}
+                    ${(data)[9].score}
                     `
                 ),
         ])
     } catch (err) {
         console.error("ERROR BRO: " + err);
     }
+
+
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
