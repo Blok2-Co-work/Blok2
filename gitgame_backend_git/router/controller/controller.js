@@ -10,7 +10,7 @@ exports.getScores = (req, res) => {
 
     connection.connect();
 
-    connection.query(`SELECT user, score FROM scores WHERE game = 'GitGame';`, (err, rows) => {
+    connection.query(`SELECT usernamegame, score FROM scores WHERE game = 'GitGame';`, (err, rows) => {
         if (err) {
             console.error("ERROR: " + err);
         }
@@ -51,7 +51,7 @@ exports.setScore = (req, res) => {
     connection.connect();
 
     connection.query(`
-    INSERT INTO scores (game, user, score, difficulty, date) VALUES ('GitGame', '${req.body.username}', '${req.body.score}', 2, NOW());
+    INSERT INTO scores (game, usernamegame, score, difficulty, boardSize) VALUES (${req.body.game}, '${req.body.usernamegame}', '${req.body.score}', ${req.body.difficulty}, ${req.body.boardSize});
     `, (err, rows) => {
         if (err){
             res.status(500).json({status: err});
@@ -72,7 +72,7 @@ exports.getScoresSorted = (req, res) => {
 
     connection.connect();
 
-    connection.query(`SELECT user, score FROM scores WHERE scores.game = 'GitGame' ORDER BY scores.score DESC`, (err, rows) => {
+    connection.query(`SELECT usernamegame, score, boardSize FROM scores WHERE scores.game = 'GitGame' ORDER BY scores.score DESC`, (err, rows) => {
         if (err) {
             console.error("ERROR: " + err);
         } res.status(200).json(rows);
